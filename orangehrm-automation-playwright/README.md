@@ -1,1 +1,0 @@
-Orange HRM automation
