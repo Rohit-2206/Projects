@@ -2,9 +2,9 @@ import {Page} from "@playwright/test";
 import { BasePage } from "./BasePage";
 
 export class LoginPage extends BasePage{
-    private usernameInput = this.page.getByPlaceholder('Username');
-    private passwordInput = this.page.getByPlaceholder('Password');
-    private loginButton = this.page.getByRole('button', {name: 'Logim'});
+    private usernameInput = this.page.locator("input[name='username']");
+    private passwordInput = this.page.locator("input[name='password']");
+    private loginButton = this.page.getByRole('button', {name: 'Login'});
 
     async login (username: string, password: string)
     {
