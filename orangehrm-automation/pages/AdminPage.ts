@@ -1,9 +1,16 @@
-import {test, expect} from "@playwright/test"
 import { BasePage } from "./BasePage"
 
 export class AdminPage extends BasePage {
-    private adminHeading = this.page.locator("//*[@id='app']/div[1]/div[1]/aside/nav/div[2]/ul/li[1]/a/span");
-    async admin (){
-        await this.click(this.adminHeading);
+    
+    private adminMenu = this.page.getByText('Admin',{exact: true});
+    async openAdminPage (){
+        await this.click(this.adminMenu)
+    }
+
+    private adminPageHeading = this.page.locator('h6.oxd-topbar-header-breadcrumb-module');
+
+    async isAdminPageHeading(){
+        await this.adminPageHeading.waitFor({state:'visible'});
+        return true;
     }
 }
